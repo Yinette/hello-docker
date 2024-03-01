@@ -1,0 +1,9 @@
+#!/bin/sh
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: Canonical Ltd
+
+echo 'This script serves as an example application in the hello-docker snap'
+echo 'You can freely use docker command-line tool here, script any interaction you want'
+echo 'You may also run container services (in foreground) as daemon: simple applications'
+
+exec docker "$@"

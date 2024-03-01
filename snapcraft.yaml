@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: Canonical Ltd
+name: hello-docker
+version: "1"
+type: app
+base: core22
+confinement: strict
+summary: "Example snap showing the use of docker"
+description: <
+  Snap packages can form informal dependencies with the help of the "content"
+  interface which allows sharing specific programs, libraries, data or
+  communication sockets. We can take advantage of the special permissions of
+  the "docker" snap which allows all publishers to get access to the docker
+  socket and executables.
+architectures:
+  - build-on: amd64
+    build-for: all
+license: Apache-2.0
+apps:
+  hello-docker:
+    command: usr/bin/hello-docker
+    environment:
+      PATH: $SNAP/docker-snap/bin:$PATH
+    plugs:
+      - docker
+      - docker-executables
+plugs:
+  docker-executables:
+    interface: content
+    content: docker-executables
+    target: $SNAP/docker-snap
+    default-provider: docker
+parts:
+  hello-docker:
+    source: .
+    plugin: make
