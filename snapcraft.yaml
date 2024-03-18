@@ -13,8 +13,8 @@ description: <
   the "docker" snap which allows all publishers to get access to the docker
   socket and executables.
 architectures:
-  - build-on: amd64
-    build-for: all
+  - build-on: [arm64, amd64]
+    build-for: [all]
 license: Apache-2.0
 apps:
   hello-docker:
