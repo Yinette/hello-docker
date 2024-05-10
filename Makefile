@@ -13,7 +13,7 @@ install: $(DESTDIR)$(bindir)/hello-docker $(DESTDIR)/docker-bin
 $(DESTDIR):
 	mkdir -p $@
 
-$(DESTDIR)/docker-bin: | $(DESTDIR)
+$(DESTDIR)/docker-snap: | $(DESTDIR)
 	install -d 755 $@
 
 $(DESTDIR)/usr: | $(DESTDIR)
