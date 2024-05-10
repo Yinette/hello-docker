@@ -94,6 +94,14 @@ Our application snap should cleanly build with `snapcraft` and install with
 may see that the `core22` base snap and the `docker` snaps are automatically
 installed. 
 
+After install you will also need to ensure that there is a connection
+relationship with your snap's docker-executables plug and the docker 
+snap's docker-executables slot:
+
+```
+$ snap connect hello-docker:docker-executables docker:docker-executables
+```
+
 Let's explore the runtime environment that our application runs in:
 
 ```
